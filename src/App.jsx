@@ -1,22 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import React, { useState } from 'react';
 import { 
-  Loader2, 
-  AlertCircle, 
-  Info, 
-  WifiOff, 
-  Thermometer, 
   Droplets, 
   LayoutDashboard, 
   Settings, 
@@ -25,287 +8,17 @@ import {
   Menu,
   X
 } from 'lucide-react';
-
-// Registrando componentes do Chart.js
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
-
-// ==========================================
-// 1. MOCKS E DADOS REALISTAS
-// ==========================================
-
-const generateRealisticData = () => {
-  const data = [];
-  let baseTemp = 20; 
-  let baseHum = 75;  
-  
-  const now = new Date('2026-05-18T08:00:00Z'); 
-  
-  for (let i = 24; i >= 0; i--) {
-    const time = new Date(now.getTime() - i * 60 * 60 * 1000);
-    const hour = time.getHours();
-    const isDay = hour > 8 && hour < 18;
-    
-    baseTemp += isDay ? (Math.random() * 2 - 0.5) : (Math.random() * -2 + 0.5);
-    baseHum += isDay ? (Math.random() * -3 + 0.5) : (Math.random() * 3 - 0.5);
-    
-    baseTemp = Math.max(18, Math.min(28, baseTemp));
-    baseHum = Math.max(40, Math.min(90, baseHum));
-
-    data.push({
-      id: 24 - i,
-      timestamp: time.toISOString(),
-      temperatura_ar: parseFloat(baseTemp.toFixed(1)),
-      umidade_ar: parseFloat(baseHum.toFixed(1)),
-      umidade_solo: parseFloat((baseHum - 10).toFixed(1)), 
-      status: "ok"
-    });
-  }
-  return data;
-};
-
-const MOCK_SUCCESS = generateRealisticData();
-
-const MOCK_OFFLINE = MOCK_SUCCESS.map((item, index) => {
-  if (index >= 21 && index <= 23) {
-    return {
-      ...item,
-      temperatura_ar: null,
-      umidade_ar: null,
-      umidade_solo: null,
-      status: "offline"
-    };
-  }
-  return item;
-});
-
-// ==========================================
-// 2. CAMADA DE SERVIÇO
-// ==========================================
-
-const fetchTelemetryData = async (simulatedState = 'success') => {
-  await new Promise(resolve => setTimeout(resolve, 800));
-
-  switch (simulatedState) {
-    case 'error':
-      throw new Error('Falha ao conectar com API. Verifique sua conexão ou tente novamente mais tarde.');
-    case 'empty':
-      return [];
-    case 'offline':
-      return MOCK_OFFLINE;
-    case 'success':
-    default:
-      return MOCK_SUCCESS;
-  }
-};
-
-// ==========================================
-// 3. COMPONENTE PRINCIPAL (HistoryChart)
-// ==========================================
-
-const HistoryChart = ({ simulatedState }) => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [offlineInfo, setOfflineInfo] = useState(null);
-
-  useEffect(() => {
-    let isMounted = true;
-    
-    const loadData = async () => {
-      setLoading(true);
-      setError(null);
-      setOfflineInfo(null);
-      
-      try {
-        const result = await fetchTelemetryData(simulatedState);
-        
-        if (isMounted) {
-          setData(result);
-          
-          const offlinePoints = result.filter(r => r.status === 'offline');
-          if (offlinePoints.length > 0) {
-            const firstOffline = offlinePoints[0];
-            const timeStr = new Date(firstOffline.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
-            setOfflineInfo(`1 sensor offline (última leitura: ${timeStr})`);
-          }
-        }
-      } catch (err) {
-        if (isMounted) {
-          setError(err.message);
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    };
-
-    loadData();
-    
-    return () => { isMounted = false; };
-  }, [simulatedState]);
-
-  if (loading) {
-    return (
-      <div className="w-full h-[400px] bg-white rounded-xl shadow-sm border border-slate-200 flex flex-col items-center justify-center p-6">
-        <Loader2 className="w-10 h-10 text-emerald-600 animate-spin mb-4" />
-        <p className="text-slate-500 font-medium">Carregando dados da horta...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="w-full h-[400px] bg-red-50 rounded-xl shadow-sm border border-red-200 flex flex-col items-center justify-center p-6 text-center">
-        <AlertCircle className="w-12 h-12 text-red-500 mb-4" />
-        <h3 className="text-lg font-semibold text-red-800 mb-2">Falha na Sincronização</h3>
-        <p className="text-red-600 max-w-md">{error}</p>
-        <button 
-          onClick={() => window.location.reload()} 
-          className="mt-6 px-4 py-2 bg-red-100 hover:bg-red-200 text-red-700 font-medium rounded-lg transition-colors"
-        >
-          Tentar Novamente
-        </button>
-      </div>
-    );
-  }
-
-  if (data.length === 0) {
-    return (
-      <div className="w-full h-[400px] bg-slate-50 rounded-xl shadow-sm border border-slate-200 flex flex-col items-center justify-center p-6 text-center">
-        <Info className="w-12 h-12 text-slate-400 mb-4" />
-        <h3 className="text-lg font-semibold text-slate-700 mb-2">Nenhum dado disponível</h3>
-        <p className="text-slate-500 max-w-md">Não há registros de telemetria para as últimas 24 horas. Verifique se os sensores estão ativados.</p>
-      </div>
-    );
-  }
-
-  const chartData = {
-    labels: data.map(d => new Date(d.timestamp).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })),
-    datasets: [
-      {
-        label: 'Temperatura (°C)',
-        data: data.map(d => d.temperatura_ar),
-        borderColor: '#ef4444',
-        backgroundColor: 'rgba(239, 68, 68, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        pointRadius: data.map(d => d.status === 'offline' ? 0 : 3),
-        pointBackgroundColor: '#ef4444',
-        spanGaps: true, 
-        yAxisID: 'y',
-      },
-      {
-        label: 'Umidade do Ar (%)',
-        data: data.map(d => d.umidade_ar),
-        borderColor: '#3b82f6',
-        backgroundColor: 'rgba(59, 130, 246, 0.1)',
-        borderWidth: 2,
-        tension: 0.4,
-        pointRadius: data.map(d => d.status === 'offline' ? 0 : 3),
-        pointBackgroundColor: '#3b82f6',
-        spanGaps: true,
-        yAxisID: 'y1',
-      }
-    ]
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    interaction: {
-      mode: 'index',
-      intersect: false,
-    },
-    plugins: {
-      legend: {
-        position: 'top',
-        labels: { usePointStyle: true, boxWidth: 8 }
-      },
-      tooltip: {
-        backgroundColor: 'rgba(15, 23, 42, 0.9)',
-        titleFont: { size: 13 },
-        bodyFont: { size: 13 },
-        padding: 12,
-        callbacks: {
-          label: function(context) {
-            if (context.raw === null) return `${context.dataset.label}: SENSOR OFFLINE`;
-            return `${context.dataset.label}: ${context.raw}${context.datasetIndex === 0 ? '°C' : '%'}`;
-          }
-        }
-      }
-    },
-    scales: {
-      x: {
-        grid: { display: false },
-        ticks: { maxTicksLimit: 12 } 
-      },
-      y: {
-        type: 'linear',
-        display: true,
-        position: 'left',
-        title: { display: true, text: 'Temperatura (°C)', color: '#ef4444' },
-        min: 15,
-        max: 35
-      },
-      y1: {
-        type: 'linear',
-        display: true,
-        position: 'right',
-        title: { display: true, text: 'Umidade (%)', color: '#3b82f6' },
-        min: 30,
-        max: 100,
-        grid: { drawOnChartArea: false }
-      }
-    }
-  };
-
-  return (
-    <div className="w-full bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden flex flex-col">
-      {offlineInfo && (
-        <div className="bg-amber-50 border-b border-amber-200 p-3 px-6 flex items-center gap-3 text-amber-800">
-          <WifiOff className="w-5 h-5 flex-shrink-0" />
-          <span className="font-medium text-sm">{offlineInfo}</span>
-        </div>
-      )}
-      
-      <div className="p-6 flex-1">
-        <div className="flex justify-between items-center mb-6">
-          <div>
-            <h2 className="text-lg font-bold text-slate-800">Histórico de Temperatura e Umidade</h2>
-            <p className="text-sm text-slate-500">Últimas 24 horas</p>
-          </div>
-        </div>
-        
-        <div className="relative w-full h-[300px] md:h-[400px]">
-          <Line data={chartData} options={chartOptions} />
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// ==========================================
-// 4. LAYOUT PRINCIPAL E DEV TOOLS
-// ==========================================
+import HistoryChart from "./features/telemetry/components/HistoryChart.jsx";
 
 export default function App() {
-  const [testState, setTestState] = useState('success');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  // Estado para controlar qual tela está ativa no dashboard
+  const [currentTab, setCurrentTab] = useState('tempo-real'); 
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col md:flex-row font-sans relative">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row font-sans relative transition-colors duration-300">
       
-      {/* Overlay escuro para mobile quando o menu está aberto */}
+      {/* Overlay escuro para mobile */}
       {isMobileMenuOpen && (
         <div 
           className="fixed inset-0 bg-slate-900/50 z-40 md:hidden"
@@ -326,60 +39,56 @@ export default function App() {
             <Droplets className="text-emerald-400" />
             HortaSmart
           </div>
-          {/* Botão fechar apenas no mobile */}
           <button className="md:hidden p-1 hover:bg-emerald-800 rounded" onClick={() => setIsMobileMenuOpen(false)}>
             <X className="w-6 h-6 text-emerald-400" />
           </button>
         </div>
-        <nav className="flex-1 py-4">
-          <a href="#" className="flex items-center gap-3 px-6 py-3 bg-emerald-800/50 border-r-4 border-emerald-400 text-white font-medium">
-            <History className="w-5 h-5" /> Histórico (Ativo)
-          </a>
-          <a href="#" className="flex items-center gap-3 px-6 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white transition-colors opacity-50 cursor-not-allowed">
-            <Activity className="w-5 h-5" /> Tempo Real
-          </a>
-          <a href="#" className="flex items-center gap-3 px-6 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white transition-colors opacity-50 cursor-not-allowed">
-            <LayoutDashboard className="w-5 h-5" /> Controle Manual
-          </a>
-          <a href="#" className="flex items-center gap-3 px-6 py-3 text-emerald-200 hover:bg-emerald-800 hover:text-white transition-colors opacity-50 cursor-not-allowed">
-            <Settings className="w-5 h-5" /> Configurações
-          </a>
+
+       {/* Menu de Navegação Interativo - Tempo Real no Topo */}
+        <nav className="flex-1 py-4 space-y-1">
+          <button 
+            type="button"
+            onClick={() => { setCurrentTab('tempo-real'); setIsMobileMenuOpen(false); }}
+            className={`w-full flex items-center gap-3 px-6 py-3 text-left font-medium transition-all ${
+              currentTab === 'tempo-real' 
+                ? 'bg-emerald-800 text-white border-r-4 border-emerald-400' 
+                : 'text-emerald-200 hover:bg-emerald-800/60 hover:text-white'
+            }`}
+          >
+            <Activity className="w-5 h-5 flex-shrink-0" /> 
+            <span>Tempo Real</span>
+          </button>
+
+          <button 
+            type="button"
+            onClick={() => { setCurrentTab('historico'); setIsMobileMenuOpen(false); }}
+            className={`w-full flex items-center gap-3 px-6 py-3 text-left font-medium transition-all ${
+              currentTab === 'historico' 
+                ? 'bg-emerald-800 text-white border-r-4 border-emerald-400' 
+                : 'text-emerald-200 hover:bg-emerald-800/60 hover:text-white'
+            }`}
+          >
+            <History className="w-5 h-5 flex-shrink-0" /> 
+            <span>Histórico</span>
+          </button>
+
+          {/* Abas desativadas do MVP */}
+          <div className="w-full flex items-center gap-3 px-6 py-3 text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+            <LayoutDashboard className="w-5 h-5 flex-shrink-0" /> 
+            <span>Controle Manual</span>
+          </div>
+          
+          <div className="w-full flex items-center gap-3 px-6 py-3 text-emerald-200/50 opacity-50 cursor-not-allowed select-none">
+            <Settings className="w-5 h-5 flex-shrink-0" /> 
+            <span>Configurações</span>
+          </div>
         </nav>
       </aside>
 
       {/* Conteúdo Principal */}
       <main className="flex-1 flex flex-col w-full max-w-full overflow-hidden">
         
-        {/* DEV TOOLS */}
-        <div className="bg-indigo-600 text-white p-3 text-sm flex flex-col sm:flex-row items-center justify-between gap-4 z-10">
-          <div className="flex items-center gap-2 font-medium">
-            <span className="bg-indigo-800 px-2 py-1 rounded text-xs uppercase tracking-wider">Dev Control</span>
-            Selecione o estado para teste:
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {[
-              { id: 'success', label: 'Sucesso' },
-              { id: 'loading', label: 'Carregamento' },
-              { id: 'error', label: 'Erro API' },
-              { id: 'offline', label: 'Sensor Offline' },
-              { id: 'empty', label: 'Sem Dados' }
-            ].map(s => (
-              <button
-                key={s.id}
-                onClick={() => setTestState(s.id)}
-                className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
-                  testState === s.id 
-                    ? 'bg-white text-indigo-700 shadow-sm' 
-                    : 'bg-indigo-500 hover:bg-indigo-400 text-indigo-50'
-                }`}
-              >
-                {s.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Header Mobile (Onde fica o botão Hambúrguer) */}
+        {/* Header Mobile */}
         <header className="md:hidden bg-emerald-900 text-white p-4 flex items-center justify-between">
           <div className="flex items-center gap-3 font-bold text-lg">
             <button 
@@ -396,37 +105,23 @@ export default function App() {
         </header>
 
         {/* View da Página */}
-        <div className="p-4 md:p-8 flex-1 overflow-y-auto">
+        <div className="p-4 md:p-8 flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
           <div className="max-w-6xl mx-auto space-y-6">
             
+            {/* Cabeçalho que muda dinamicamente com base na aba ativa */}
             <header className="mb-8">
-              <h1 className="text-2xl md:text-3xl font-bold text-slate-800">Análise de Dados</h1>
-              <p className="text-slate-500 mt-1">Visualize o comportamento climático da horta.</p>
+              <h1 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-slate-100 transition-colors">
+                {currentTab === 'historico' ? 'Análise de Dados' : 'Monitoramento em Tempo Real'}
+              </h1>
+              <p className="text-slate-500 dark:text-slate-400 mt-1 transition-colors">
+                {currentTab === 'historico' 
+                  ? 'Visualize o comportamento climático da horta ao longo do tempo.' 
+                  : 'Leituras instantâneas atualizadas dos sensores instalados.'}
+              </p>
             </header>
 
-            <HistoryChart simulatedState={testState} />
-            
-            {/* Cards de Resumo */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 opacity-75">
-               <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-red-100 flex items-center justify-center text-red-500">
-                    <Thermometer className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium">Média de Temperatura (24h)</p>
-                    <p className="text-2xl font-bold text-slate-800">23.4°C</p>
-                  </div>
-               </div>
-               <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-500">
-                    <Droplets className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 font-medium">Média de Umidade (24h)</p>
-                    <p className="text-2xl font-bold text-slate-800">65.2%</p>
-                  </div>
-               </div>
-            </div>
+            {/* Enviamos a aba atual como uma propriedade (prop) para o componente decidir o que exibir */}
+            <HistoryChart activeTab={currentTab} />
 
           </div>
         </div>
