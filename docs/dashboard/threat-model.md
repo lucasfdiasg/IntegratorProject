@@ -1,7 +1,7 @@
 # Threat Model — Dashboard HortaSmart
 
 **Escopo:** Front-end React do dashboard de monitoramento.  
-**Data:** 2026-06-05  
+**Data:** 2026-06-14  
 **Versão:** 1.0 (A1.8 / Release 2)  
 **Autores:** Equipe HortaSmart
 
@@ -97,8 +97,8 @@
 ## 3. Evidência de SCA (Software Composition Analysis)
 
 ```
-npm audit -- executado em 2026-06-05
-Resultado completo em: docs/dashboard/evidencias/npm-audit-20260605.json
+npm audit -- executado em 2026-06-14
+Resultado completo em: docs/dashboard/evidencias/npm-audit-20260614.json
 ```
 
 Resumo: 0 vulnerabilidades críticas ou altas identificadas nas dependências diretas. Vulnerabilidades de desenvolvimento (devDependencies) não impactam o bundle de produção.
