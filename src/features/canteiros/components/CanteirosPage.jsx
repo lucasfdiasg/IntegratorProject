@@ -1,7 +1,7 @@
 // src/features/canteiros/components/CanteirosPage.jsx
 import React, { useState, useEffect, useCallback } from 'react';
 import {
-  Plus, Pencil, Trash2, Loader2, AlertTriangle, X, Save, CheckCircle,
+  Plus, Pencil, Trash2, Loader2, X, Save, CheckCircle,
 } from 'lucide-react';
 import {
   fetchCanteiros, createCanteiro, updateCanteiro, deleteCanteiro,
@@ -173,9 +173,6 @@ export default function CanteirosPage() {
         refreshCanteiros();
       }
       setModal(null);
-    } catch (err) {
-      // Re-throw so CanteirosForm.handleSubmit can display it
-      throw err;
     } finally {
       setSaving(false);
     }

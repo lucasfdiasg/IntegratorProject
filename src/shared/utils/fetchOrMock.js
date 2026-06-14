@@ -11,22 +11,17 @@
 import { logger } from './logger.js';
 
 export async function fetchOrMock(url, mockFn, { errorCode = '', component = 'fetchOrMock' } = {}) {
-  try {
-    const res = await fetch(url);
+  const res = await fetch(url);
 
-    if (res.status === 404) {
-      logger.warn(component, 'endpoint_not_found_fallback_mock', {
-        url,
-        errorCode,
-        note: 'Endpoint ausente na API — usando dados mock.',
-      });
-      return await mockFn();
-    }
-
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    return res.json();
-  } catch (err) {
-    // Network / CORS errors — re-throw so the caller handles them
-    throw err;
+  if (res.status === 404) {
+    logger.warn(component, 'endpoint_not_found_fallback_mock', {
+      url,
+      errorCode,
+      note: 'Endpoint ausente na API — usando dados mock.',
+    });
+    return await mockFn();
   }
+
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return res.json();
 }

@@ -1,6 +1,6 @@
 // src/features/irrigacao/services/irrigacaoService.js
 import { logger } from '../../../shared/utils/logger.js';
-import { HortaError, ERROR_CODES } from '../../../shared/utils/errors.js';
+import { HortaError } from '../../../shared/utils/errors.js';
 
 const BASE_URL = `${import.meta.env.VITE_API_URL ?? ''}/api/v1`;
 const USE_MOCK  = !import.meta.env.VITE_API_URL || import.meta.env.VITE_USE_MOCK === 'true';

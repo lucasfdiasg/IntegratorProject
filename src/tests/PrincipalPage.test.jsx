@@ -1,6 +1,6 @@
 // src/tests/PrincipalPage.test.jsx
 import React from 'react';
-import { render, screen, waitFor, fireEvent, act } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import PrincipalPage from '../features/principal/components/PrincipalPage.jsx';
 import * as svc from '../features/telemetry/services/telemetryService.js';
 import { MOCK_CANTEIRO_A } from '../features/telemetry/mocks/telemetry.mock.js';

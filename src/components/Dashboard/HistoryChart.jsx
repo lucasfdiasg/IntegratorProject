@@ -189,6 +189,7 @@ const HistoryChart = ({ simulatedState = 'success' }) => {
 // ==========================================
 // 4. APLICAÇÃO PRINCIPAL (Wrapper para Pré-visualização)
 // ==========================================
+// eslint-disable-next-line no-unused-vars
 function App() {
   const [testState, setTestState] = useState('success');
 
