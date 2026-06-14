@@ -155,6 +155,4 @@ flowchart TB
 - Detecção de pragas via imagem.
 - Migração para rede LoRa em versões futuras.
 
----
-
 ## Referências

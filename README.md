@@ -1,16 +1,13 @@
-# React + Vite
+# Sistema de Monitoramento de Horta Comunitária Inteligente
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Equipe:** Cleive dos Santos Costa - RA: 207900, Lucas Freitas Dias Gonaçalve - RA: 211230, Luís Otávio - RA 194952 e Rafael Mendes - 216729
+**Disciplina:** Projeto Integrador (5º Período - Engenharia de Computação / UNASP-EC)
 
-Currently, two official plugins are available:
+## Escopo do Projeto
+Desenvolvimento de um sistema de IoT (Hardware + Software) para monitorar variáveis climáticas (umidade do solo e temperatura) e automatizar a irrigação de uma horta comunitária. O sistema envolve nós sensores com ESP32, comunicação Wi-Fi, armazenamento em Banco de Dados Relacional e um Dashboard Web para gestão e alertas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Links Rápidos
+* [Processos da Equipe](process.md)
+* [Métricas de Saúde](metrics.md)
+* [Especificação de Requisitos (SRS)](requirements/srs.md)
+* [Stakeholders](requirements/stakeholders.md)
