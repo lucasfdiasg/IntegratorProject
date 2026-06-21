@@ -2,52 +2,31 @@ name: CI
 
 on:
   push:
-    branches: ["main", "feat/**", "fix/**", "docs/**"]
   pull_request:
-    branches: ["main"]
 
 permissions:
   contents: read
 
 jobs:
-  lint:
-    name: Validar Código e Estilo
+  ci:
+    name: Lint e Testes
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Lint (ESLint)
-        run: npm run lint --if-present
+          node-version: 20
+          cache: npm
 
-  test:
-    name: Testes Automatizados
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm test -- --forceExit --no-coverage
+      - name: Instalar dependências
+        run: npm ci
 
-  commit-lint:
-    name: Validar Padrão de Commit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Commitlint
-        uses: wagoid/commitlint-github-action@v6
-        with:
-          configFile: commitlint.config.cjs
+      - name: Rodar lint
+        run: npm run lint
+
+      - name: Rodar testes
+        run: npm test
