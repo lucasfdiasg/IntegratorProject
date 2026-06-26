@@ -1,7 +1,7 @@
 # Observabilidade — Dashboard HortaSmart
 
-**Versão:** 1.1 (A1.8 / Release 2)  
-**Data:** 2026-06-14
+**Versão:** 1.2 (A2 / Auditoria Individual — Cenário C5)  
+**Data:** 2026-06-21
 
 ---
 
@@ -69,6 +69,8 @@ window.__horta_metrics__
 | `avg_fetch_ms` | Latência média calculada no snapshot | `"avg_ms":8` |
 | `alerts_displayed` | Total de alertas renderizados na sessão | `"message":"alerts_displayed","count":2` |
 | `render_times.principal` | Histórico de tempos de render da PrincipalPage | `"message":"render_time","page":"principal","ms":8` |
+| **`error_rate_high`** | **Alerta ativo de pico de falhas (Taxa de erro >= 50%)** | **`"message":"error_rate_high","errorRate":0.5`** |
+| **`error_rate_recovered`** | **Aviso de recuperação (Taxa de erro < 50%)** | **`"message":"error_rate_recovered","errorRate":0.4`** |
 
 ### Evidência de métricas capturadas (teste E2E — 2026-06-14)
 
@@ -105,13 +107,14 @@ F12 → Console → filtrar por level:"ERROR"
 ```
 Campos relevantes: `component`, `message`, `errorCode`. O código `HSM-*` identifica exatamente onde a falha ocorreu:
 
-| Código | Origem | Ação |
+| Código / Alerta | Origem | Ação |
 |---|---|---|
 | `HSM-TEL-001` | Timeout (> 40s) | Verificar latência da API ou aumentar timeout |
 | `HSM-TEL-002/003` | Endpoint de telemetria indisponível | Verificar backend ESP32 |
 | `HSM-TEL-005` | HTTP error genérico | Ver status code no log |
 | `HSM-ALR-001` | Alertas indisponíveis | Normal se endpoint não implementado — usa mock |
 | `HSM-HST-001` | Histórico indisponível | Normal se endpoint não implementado — usa mock |
+| **`error_rate_high`** | **Taxa de erro de fetch >= 50%** | **API Instável. Siga diretamente para o Passo 5.** |
 
 **Passo 2 — Verificar conectividade com a API**
 ```bash
@@ -134,12 +137,16 @@ Console → Network → OPTIONS preflight
 # Verificar: "Access-Control-Allow-Origin" presente na resposta
 ```
 
-**Passo 5 — Checar taxa de erros via métricas**
+**Passo 5 — Monitorar Alerta Ativo de Taxa de Erros (`error_rate_high`)**
 ```js
-window.__horta_metrics__
-// fetch_errors / fetch_calls > 50% → API instável
-// avg_fetch_ms > 5000 → latência alta, risco de timeout
-```
+// O sistema monitora ativamente as falhas. Se a taxa: fetch_errors / fetch_calls >= 50%
+// (com um mínimo de 5 chamadas), o log logger.error('metrics', 'error_rate_high') 
+// será emitido no console automaticamente.
+
+// Ação do Operador:
+// 1. Ao observar 'error_rate_high' no console, confirme a instabilidade da API.
+// 2. Não é necessário resetar a métrica. Assim que a API se recuperar e a taxa 
+// cair (< 50%), o sistema silenciará o alarme emitindo 'error_rate_recovered'.
 
 **Passo 6 — Ativar modo mock temporariamente**
 ```bash

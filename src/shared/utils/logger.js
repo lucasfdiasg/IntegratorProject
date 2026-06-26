@@ -77,12 +77,33 @@ export const getLogs = () => [..._logs].reverse(); // newest first
 
 // ── Metrics helpers ─────────────────────────────────────────────
 
+// Adicionamos uma flag de estado fora do objeto para controlar o alarme
+let _isAlertActive = false;
+
 export const metrics = {
   recordFetch(durationMs, success) {
     _metrics.fetch_calls += 1;
     _metrics.fetch_total_ms += durationMs;
     if (!success) _metrics.fetch_errors += 1;
     _log('DEBUG', 'metrics', 'fetch_recorded', { durationMs, success });
+
+    // --- INÍCIO DA NOSSA INSTRUMENTAÇÃO (CENÁRIO C5) ---
+    const errorRate = _metrics.fetch_errors / _metrics.fetch_calls;
+    const MIN_CALLS = 5;   // Volume mínimo para evitar alarmes falsos no início
+    const THRESHOLD = 0.5; // Limiar de 50% de taxa de erro
+
+    if (_metrics.fetch_calls >= MIN_CALLS) {
+      if (errorRate >= THRESHOLD && !_isAlertActive) {
+        // A taxa passou do limite e o alarme está desligado. Disparamos o alerta!
+        logger.error('metrics', 'error_rate_high', { errorRate, calls: _metrics.fetch_calls });
+        _isAlertActive = true; // Liga o alarme
+      } else if (errorRate < THRESHOLD && _isAlertActive) {
+        // A taxa caiu para um nível saudável, mas o alarme estava tocando. Silenciamos!
+        logger.info('metrics', 'error_rate_recovered', { errorRate, calls: _metrics.fetch_calls });
+        _isAlertActive = false; // Desliga o alarme
+      }
+    }
+    // --- FIM DA NOSSA INSTRUMENTAÇÃO ---
   },
 
   recordAlertDisplayed(count = 1) {
