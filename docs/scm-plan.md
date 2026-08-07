@@ -39,7 +39,7 @@ As seguintes regras devem ser configuradas no repositório do GitHub (`Settings 
 
 - Pull Request obrigatório: É proibido o push direto. Toda alteração deve passar pelo processo de revisão.
 - Mínimo de 2 aprovações: Definimos duas aprovações como obrigatórias, para aumentar o rigor de inspeção de código e garantir que ao menos 75% da equipe esteja ciente do fluxo de trabalho e das alterações feitas. Com isso diminuímos um pouco a agilidade para ganhar em segurança.
-- Status checks obrigatórios (CI): O merge só será habilitado se o workflow de Integração Contínua (Linter e testes básicos) retornar sucesso.
+- Status checks obrigatórios (CI): O merge só será habilitado se o workflow de Integração Contínua definido em `.github/workflows/main.yml` retornar sucesso. Esse workflow executa `npm ci`, `npm run lint` e `npm test` em eventos de `push` e `pull_request`, materializando o gate de não-regressão da branch `main`.
 - Histórico linear: É obrigatório o uso de *Squash and Merge* para manter o histórico da `main` limpo e sem commits de merge intermediários.
 - Bloqueio de Force Push: Impede que o histórico da branch principal seja sobrescrito acidentalmente.
 
