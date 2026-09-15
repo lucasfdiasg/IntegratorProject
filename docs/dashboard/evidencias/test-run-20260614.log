@@ -1,0 +1,1295 @@
+
+> dashboard-horta@0.0.0 test
+> jest --config jest.config.cjs --forceExit --no-coverage --verbose
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      86 |       ]);
+      87 |
+    > 88 |       setCurrent(cur);
+         |       ^
+      89 |       setHistory(hist);
+      90 |       setWater(report);
+      91 |       setLastUpdate(new Date());
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setCurrent (src/features/principal/components/PrincipalPage.jsx:88:7)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      87 |
+      88 |       setCurrent(cur);
+    > 89 |       setHistory(hist);
+         |       ^
+      90 |       setWater(report);
+      91 |       setLastUpdate(new Date());
+      92 |       setError(null);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setHistory (src/features/principal/components/PrincipalPage.jsx:89:7)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      88 |       setCurrent(cur);
+      89 |       setHistory(hist);
+    > 90 |       setWater(report);
+         |       ^
+      91 |       setLastUpdate(new Date());
+      92 |       setError(null);
+      93 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setWater (src/features/principal/components/PrincipalPage.jsx:90:7)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      89 |       setHistory(hist);
+      90 |       setWater(report);
+    > 91 |       setLastUpdate(new Date());
+         |       ^
+      92 |       setError(null);
+      93 |
+      94 |       syncBombaFromTelemetry(selected, cur?.status_bomba);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLastUpdate (src/features/principal/components/PrincipalPage.jsx:91:7)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      90 |       setWater(report);
+      91 |       setLastUpdate(new Date());
+    > 92 |       setError(null);
+         |       ^
+      93 |
+      94 |       syncBombaFromTelemetry(selected, cur?.status_bomba);
+      95 |       setBombaAtiva(getBombaStatus(selected));
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setError (src/features/principal/components/PrincipalPage.jsx:92:7)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      93 |
+      94 |       syncBombaFromTelemetry(selected, cur?.status_bomba);
+    > 95 |       setBombaAtiva(getBombaStatus(selected));
+         |       ^
+      96 |
+      97 |       // Trend buffer
+      98 |       if (cur && cur.status !== 'offline') {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setBombaAtiva (src/features/principal/components/PrincipalPage.jsx:95:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:48.999Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to PrincipalPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      114 |       logger.error('PrincipalPage', 'load_error', { message: err.message, code: err.code });
+      115 |     } finally {
+    > 116 |       setLoading(false);
+          |       ^
+      117 |     }
+      118 |   }, [selected]);
+      119 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/features/principal/components/PrincipalPage.jsx:116:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.017Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.094Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.131Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.168Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.218Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    {"level":"ERROR","ts":"2026-06-14T15:09:49.270Z","requestId":null,"component":"PrincipalPage","message":"API indisponível"}
+
+      53 |
+      54 |   switch (level) {
+    > 55 |     case 'ERROR': console.error(line); break;
+         |                           ^
+      56 |     case 'WARN':  console.warn(line);  break;
+      57 |     default:      console.log(line);
+      58 |   }
+
+      at error (src/shared/utils/logger.js:55:27)
+      at Object._log [as error] (src/shared/utils/logger.js:73:43)
+      at error (src/features/principal/components/PrincipalPage.jsx:114:14)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.290Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:49.409Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.252Z","requestId":null,"component":"App","message":"app_started"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.263Z","requestId":null,"component":"useCanteiros","message":"loaded","count":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.264Z","requestId":null,"component":"PrincipalPage","message":"data_loaded","canteiro":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.531Z","requestId":null,"component":"useCanteiros","message":"loaded","count":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.532Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":2,"total":2}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.535Z","requestId":null,"component":"AlertasPage","message":"loaded","total":2,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.625Z","requestId":null,"component":"useCanteiros","message":"loaded","count":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.628Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":5,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      170 |     setExp(true);
+      171 |     try { await exportHistoricoCSV({ canteiroId: filterCanteiro, days: loadedDays }); }
+    > 172 |     finally { setExp(false); }
+          |               ^
+      173 |   };
+      174 |
+      175 |   // ── Chart data ────────────────────────────────────────────────────
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setExp (src/features/historico/components/HistoricoPage.jsx:172:15)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.875Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      15 |     fetchCanteiros()
+      16 |       .then(data => {
+    > 17 |         setCanteiros(data);
+         |         ^
+      18 |         logger.info('useCanteiros', 'loaded', { count: data.length });
+      19 |       })
+      20 |       .catch(err => logger.error('useCanteiros', 'error', { message: err.message }))
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setCanteiros (src/shared/hooks/useCanteiros.js:17:9)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.882Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      83 |         page: p, limit: 20,
+      84 |       });
+    > 85 |       setAlertas(prev => p === 0 ? res.items : [...prev, ...res.items]);
+         |       ^
+      86 |       setTotal(res.total);
+      87 |       setPage(p);
+      88 |       metrics.recordAlertDisplayed(res.items.length);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setAlertas (src/features/alertas/components/AlertasPage.jsx:85:7)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      84 |       });
+      85 |       setAlertas(prev => p === 0 ? res.items : [...prev, ...res.items]);
+    > 86 |       setTotal(res.total);
+         |       ^
+      87 |       setPage(p);
+      88 |       metrics.recordAlertDisplayed(res.items.length);
+      89 |       logger.info('AlertasPage', 'loaded', { total: res.total, page: p });
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setTotal (src/features/alertas/components/AlertasPage.jsx:86:7)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      85 |       setAlertas(prev => p === 0 ? res.items : [...prev, ...res.items]);
+      86 |       setTotal(res.total);
+    > 87 |       setPage(p);
+         |       ^
+      88 |       metrics.recordAlertDisplayed(res.items.length);
+      89 |       logger.info('AlertasPage', 'loaded', { total: res.total, page: p });
+      90 |     } catch (err) {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setPage (src/features/alertas/components/AlertasPage.jsx:87:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.889Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":0,"total":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.889Z","requestId":null,"component":"AlertasPage","message":"loaded","total":0,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      92 |       logger.error('AlertasPage', 'load_error', { message: err.message, code: err.code });
+      93 |     } finally {
+    > 94 |       setLoading(false);
+         |       ^
+      95 |     }
+      96 |   }, [filterCanteiro, filterTipo, filterSev, filterPeriod]);
+      97 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/features/alertas/components/AlertasPage.jsx:94:7)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      19 |       })
+      20 |       .catch(err => logger.error('useCanteiros', 'error', { message: err.message }))
+    > 21 |       .finally(() => setLoading(false));
+         |                      ^
+      22 |   }, []);
+      23 |
+      24 |   useEffect(() => {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/shared/hooks/useCanteiros.js:21:22)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.895Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.901Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.901Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":2,"total":2}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.902Z","requestId":null,"component":"AlertasPage","message":"loaded","total":2,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.940Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.943Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.944Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":2,"total":4}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.945Z","requestId":null,"component":"AlertasPage","message":"loaded","total":2,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.995Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.998Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.999Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":2,"total":6}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:50.999Z","requestId":null,"component":"AlertasPage","message":"loaded","total":2,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to AlertasPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      110 |   const handleMarkRead = async (id) => {
+      111 |     await markAlertaLido(id);
+    > 112 |     setAlertas(prev => prev.map(a => a.id === id ? { ...a, lido: true } : a));
+          |     ^
+      113 |   };
+      114 |
+      115 |   const unread  = alertas.filter(a => !a.lido).length;
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setAlertas (src/features/alertas/components/AlertasPage.jsx:112:5)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.076Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.080Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    {"level":"ERROR","ts":"2026-06-14T15:09:51.081Z","requestId":null,"component":"AlertasPage","message":"API indisponível"}
+
+      53 |
+      54 |   switch (level) {
+    > 55 |     case 'ERROR': console.error(line); break;
+         |                           ^
+      56 |     case 'WARN':  console.warn(line);  break;
+      57 |     default:      console.log(line);
+      58 |   }
+
+      at error (src/shared/utils/logger.js:55:27)
+      at Object._log [as error] (src/shared/utils/logger.js:73:43)
+      at error (src/features/alertas/components/AlertasPage.jsx:92:14)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.087Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.091Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.091Z","requestId":null,"component":"metrics","message":"alerts_displayed","count":0,"total":6}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.092Z","requestId":null,"component":"AlertasPage","message":"loaded","total":0,"page":0}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.304Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      15 |     fetchCanteiros()
+      16 |       .then(data => {
+    > 17 |         setCanteiros(data);
+         |         ^
+      18 |         logger.info('useCanteiros', 'loaded', { count: data.length });
+      19 |       })
+      20 |       .catch(err => logger.error('useCanteiros', 'error', { message: err.message }))
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setCanteiros (src/shared/hooks/useCanteiros.js:17:9)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.312Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      19 |       })
+      20 |       .catch(err => logger.error('useCanteiros', 'error', { message: err.message }))
+    > 21 |       .finally(() => setLoading(false));
+         |                      ^
+      22 |   }, []);
+      23 |
+      24 |   useEffect(() => {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/shared/hooks/useCanteiros.js:21:22)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      130 |         }
+      131 |       }
+    > 132 |       setHasCurrent(appended);
+          |       ^
+      133 |
+      134 |       // hasMore: true if this load returned more records than the previous one
+      135 |       const prevCount = prevCountRef.current;
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setHasCurrent (src/features/historico/components/HistoricoPage.jsx:132:7)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      135 |       const prevCount = prevCountRef.current;
+      136 |       const newCount  = sorted.length;
+    > 137 |       setHasMore(newCount > prevCount);
+          |       ^
+      138 |       prevCountRef.current = newCount;
+      139 |       setRows(sorted);
+      140 |       setError(null);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setHasMore (src/features/historico/components/HistoricoPage.jsx:137:7)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      137 |       setHasMore(newCount > prevCount);
+      138 |       prevCountRef.current = newCount;
+    > 139 |       setRows(sorted);
+          |       ^
+      140 |       setError(null);
+      141 |       logger.info('HistoricoPage', 'charts_loaded', { points: sorted.length, days });
+      142 |     } catch (err) {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setRows (src/features/historico/components/HistoricoPage.jsx:139:7)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      138 |       prevCountRef.current = newCount;
+      139 |       setRows(sorted);
+    > 140 |       setError(null);
+          |       ^
+      141 |       logger.info('HistoricoPage', 'charts_loaded', { points: sorted.length, days });
+      142 |     } catch (err) {
+      143 |       setError(err);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setError (src/features/historico/components/HistoricoPage.jsx:140:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.328Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":1,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      144 |       logger.error('HistoricoPage', 'load_error', { message: err.message, code: err.code });
+      145 |     } finally {
+    > 146 |       setLoading(false);
+          |       ^
+      147 |       setLoadingMore(false);
+      148 |     }
+      149 |   }, [filterCanteiro]);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/features/historico/components/HistoricoPage.jsx:146:7)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      145 |     } finally {
+      146 |       setLoading(false);
+    > 147 |       setLoadingMore(false);
+          |       ^
+      148 |     }
+      149 |   }, [filterCanteiro]);
+      150 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoadingMore (src/features/historico/components/HistoricoPage.jsx:147:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.361Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.368Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.373Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":10,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.434Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.442Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.443Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":5,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.513Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.520Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.521Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":5,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.557Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.564Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.565Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":3,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.584Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.594Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.595Z","requestId":null,"component":"HistoricoPage","message":"charts_loaded","points":3,"days":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoricoPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      170 |     setExp(true);
+      171 |     try { await exportHistoricoCSV({ canteiroId: filterCanteiro, days: loadedDays }); }
+    > 172 |     finally { setExp(false); }
+          |               ^
+      173 |   };
+      174 |
+      175 |   // ── Chart data ────────────────────────────────────────────────────
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setExp (src/features/historico/components/HistoricoPage.jsx:172:15)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.630Z","requestId":null,"component":"canteirosService","message":"fetch_canteiros"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.650Z","requestId":null,"component":"useCanteiros","message":"loaded","count":3}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    {"level":"ERROR","ts":"2026-06-14T15:09:51.651Z","requestId":null,"component":"HistoricoPage","message":"Timeout na conexão"}
+
+      53 |
+      54 |   switch (level) {
+    > 55 |     case 'ERROR': console.error(line); break;
+         |                           ^
+      56 |     case 'WARN':  console.warn(line);  break;
+      57 |     default:      console.log(line);
+      58 |   }
+
+      at error (src/shared/utils/logger.js:55:27)
+      at Object._log [as error] (src/shared/utils/logger.js:73:43)
+      at error (src/features/historico/components/HistoricoPage.jsx:144:14)
+
+  console.error
+    An update to CanteirosPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      148 |     try {
+      149 |       const data = await fetchCanteiros();
+    > 150 |       setCanteiros(data);
+          |       ^
+      151 |       logger.info('CanteirosPage', 'loaded', { count: data.length });
+      152 |     } catch (err) {
+      153 |       setError(err);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setCanteiros (src/features/canteiros/components/CanteirosPage.jsx:150:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.840Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to CanteirosPage inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      153 |       setError(err);
+      154 |     } finally {
+    > 155 |       setLoading(false);
+          |       ^
+      156 |     }
+      157 |   }, []);
+      158 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/features/canteiros/components/CanteirosPage.jsx:155:7)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.846Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.861Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.890Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.957Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:51.993Z","requestId":null,"component":"CanteirosPage","message":"loaded","count":1}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.log
+    {"level":"INFO","ts":"2026-06-14T15:09:52.049Z","requestId":null,"component":"CanteirosPage","message":"deleted","id":"canteiro-a"}
+
+      at log (src/shared/utils/logger.js:57:27)
+
+  console.error
+    An update to HistoryChart inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      69 |         });
+      70 |
+    > 71 |         setHistoryData(adjustedHistory);
+         |         ^
+      72 |         setCurrentData(adjustedCurrent);
+      73 |         setError(null);
+      74 |       }
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setHistoryData (src/features/telemetry/components/HistoryChart.jsx:71:9)
+
+  console.error
+    An update to HistoryChart inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      70 |
+      71 |         setHistoryData(adjustedHistory);
+    > 72 |         setCurrentData(adjustedCurrent);
+         |         ^
+      73 |         setError(null);
+      74 |       }
+      75 |     } catch (err) {
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setCurrentData (src/features/telemetry/components/HistoryChart.jsx:72:9)
+
+  console.error
+    An update to HistoryChart inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      71 |         setHistoryData(adjustedHistory);
+      72 |         setCurrentData(adjustedCurrent);
+    > 73 |         setError(null);
+         |         ^
+      74 |       }
+      75 |     } catch (err) {
+      76 |       console.error("Erro na requisição:", err);
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setError (src/features/telemetry/components/HistoryChart.jsx:73:9)
+
+  console.error
+    An update to HistoryChart inside a test was not wrapped in act(...).
+    
+    When testing, code that causes React state updates should be wrapped into act(...):
+    
+    act(() => {
+      /* fire events that update state */
+    });
+    /* assert on the output */
+    
+    This ensures that you're testing the behavior the user would see in the browser. Learn more at https://react.dev/link/wrap-tests-with-act
+
+      77 |       setError("Falha ao conectar com o servidor da Horta na nuvem.");
+      78 |     } finally {
+    > 79 |       setLoading(false);
+         |       ^
+      80 |     }
+      81 |   };
+      82 |
+
+      at node_modules/react-dom/cjs/react-dom-client.development.js:18758:19
+      at runWithFiberInDEV (node_modules/react-dom/cjs/react-dom-client.development.js:874:13)
+      at warnIfUpdatesNotWrappedWithActDEV (node_modules/react-dom/cjs/react-dom-client.development.js:18757:9)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom-client.development.js:16409:11)
+      at dispatchSetStateInternal (node_modules/react-dom/cjs/react-dom-client.development.js:9170:13)
+      at dispatchSetState (node_modules/react-dom/cjs/react-dom-client.development.js:9127:7)
+      at setLoading (src/features/telemetry/components/HistoryChart.jsx:79:7)
+
+  console.error
+    Erro na requisição: Error: Falha
+        at Object.<anonymous> (/home/claude/IntegratorProject/src/tests/HistoryChart.test.jsx:43:45)
+        at Promise.finally.completed (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1561:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1501:10)
+        at _callCircusTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1011:40)
+        at _runTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:951:3)
+        at /home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:853:7
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:866:11)
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:861:11)
+        at run (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:765:3)
+        at runAndTransformResultsToJestFormat (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1993:21)
+        at jestAdapter (/home/claude/IntegratorProject/node_modules/jest-circus/build/runner.js:111:19)
+        at runTestInternal (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:276:16)
+        at runTest (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:344:7)
+
+      74 |       }
+      75 |     } catch (err) {
+    > 76 |       console.error("Erro na requisição:", err);
+         |               ^
+      77 |       setError("Falha ao conectar com o servidor da Horta na nuvem.");
+      78 |     } finally {
+      79 |       setLoading(false);
+
+      at error (src/features/telemetry/components/HistoryChart.jsx:76:15)
+
+  console.error
+    Erro na requisição: Error: timeout
+        at Object.<anonymous> (/home/claude/IntegratorProject/src/tests/HistoryChart.test.jsx:71:30)
+        at Promise.finally.completed (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1561:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1501:10)
+        at _callCircusTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1011:40)
+        at _runTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:951:3)
+        at /home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:853:7
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:866:11)
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:861:11)
+        at run (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:765:3)
+        at runAndTransformResultsToJestFormat (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1993:21)
+        at jestAdapter (/home/claude/IntegratorProject/node_modules/jest-circus/build/runner.js:111:19)
+        at runTestInternal (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:276:16)
+        at runTest (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:344:7)
+
+      74 |       }
+      75 |     } catch (err) {
+    > 76 |       console.error("Erro na requisição:", err);
+         |               ^
+      77 |       setError("Falha ao conectar com o servidor da Horta na nuvem.");
+      78 |     } finally {
+      79 |       setLoading(false);
+
+      at error (src/features/telemetry/components/HistoryChart.jsx:76:15)
+
+  console.error
+    Erro na requisição: Error: timeout
+        at Object.<anonymous> (/home/claude/IntegratorProject/src/tests/HistoryChart.test.jsx:74:30)
+        at Promise.finally.completed (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1561:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1501:10)
+        at _callCircusTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1011:40)
+        at _runTest (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:951:3)
+        at /home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:853:7
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:866:11)
+        at _runTestsForDescribeBlock (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:861:11)
+        at run (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:765:3)
+        at runAndTransformResultsToJestFormat (/home/claude/IntegratorProject/node_modules/jest-circus/build/jestAdapterInit.js:1993:21)
+        at jestAdapter (/home/claude/IntegratorProject/node_modules/jest-circus/build/runner.js:111:19)
+        at runTestInternal (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:276:16)
+        at runTest (/home/claude/IntegratorProject/node_modules/jest-runner/build/index.js:344:7)
+
+      74 |       }
+      75 |     } catch (err) {
+    > 76 |       console.error("Erro na requisição:", err);
+         |               ^
+      77 |       setError("Falha ao conectar com o servidor da Horta na nuvem.");
+      78 |     } finally {
+      79 |       setLoading(false);
+
+      at error (src/features/telemetry/components/HistoryChart.jsx:76:15)
+
